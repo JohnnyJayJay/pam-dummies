@@ -35,7 +35,7 @@ void on_event(uiohook_event * const event) {
     }
 }
 
-PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv) {
+PAM_EXTERN int pam_sm_authenticate(__attribute__ ((unused)) pam_handle_t *pamh, __attribute__ ((unused)) int flags, __attribute__ ((unused)) int argc, __attribute__ ((unused)) const char **argv) {
     remaining_tries = 5;
     hook_set_dispatch_proc(&on_event);
     printf("Press a key to continue authenticating.\n");
@@ -49,24 +49,4 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
     } else {
         return PAM_PERM_DENIED;
     }
-}
-
-PAM_EXTERN int pam_sm_acct_mgmt(pam_handle_t *pamh, int flags, int argc, const char **argv) {
-    return PAM_SERVICE_ERR;
-}
-
-PAM_EXTERN int pam_sm_setcred(pam_handle_t *pamh, int flags, int argc, const char **argv) {
-    return PAM_SERVICE_ERR;
-}
-
-PAM_EXTERN int pam_sm_open_session(pam_handle_t *pamh, int flags, int argc, const char **argv) {
-    return PAM_SERVICE_ERR;
-}
-
-PAM_EXTERN int pam_sm_close_session(pam_handle_t *pamh, int flags, int argc, const char **argv) {
-    return PAM_SERVICE_ERR;
-}
-
-PAM_EXTERN int pam_sm_chauthtok(pam_handle_t *pamh, int flags, int argc, const char **argv) {
-    return PAM_SERVICE_ERR;
 }
