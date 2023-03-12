@@ -7,6 +7,9 @@ Currently the following PAM modules are available:
 - **keystroke**: Pressing a key authenticates you (does not work in native Wayland windows - use XWayland)
 - **yesman**: Returns immediately with a positive response for any PAM service
 
+## Dependencies
+- `keystroke` needs [`libuiohook`](https://github.com/kwhat/libuiohook) to be installed 
+
 ## Build
 
 - Run `make <name-of-the-module>` to get a corresponding shared library. E.g. `make yesman` gives you `pam_yesman.so`.
