@@ -19,11 +19,11 @@ pam_%.so: %.o
 
 
 install: all
-	sudo cp -v -t /usr/lib/security $(LIBS)
+	cp -v -t /usr/lib/security $(LIBS)
 	@echo PAM Dummies installed to /usr/lib/security
 
 uninstall:
-	sudo rm -vf $(addprefix /usr/lib/security/,$(LIBS))
+	rm -vf $(addprefix /usr/lib/security/,$(LIBS))
 	@echo PAM Dummies successfully uninstalled
 
 .PHONY : clean
