@@ -14,9 +14,8 @@ pam_keystroke.so: LDLIBS += -luiohook
 pam_%.so: %.o
 	$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
 
-%:
+$(TARGETS):
 	$(MAKE) pam_$@.so
-
 
 install: all
 	cp -v -t /usr/lib/security $(LIBS)
