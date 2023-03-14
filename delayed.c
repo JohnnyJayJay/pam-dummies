@@ -20,7 +20,7 @@ PAM_EXTERN int pam_sm_authenticate(
             return PAM_SYSTEM_ERR;
         }
     }
-    printf("Authenticating you after %i seconds...", seconds);
+    printf("Authenticating you after %i seconds...\n", seconds);
     sleep(seconds);
     return PAM_SUCCESS;
 }
