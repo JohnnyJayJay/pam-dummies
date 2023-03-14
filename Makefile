@@ -2,10 +2,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -fPIC -std=c11
 LDFLAGS = -shared
 
-SRC = keystroke.c yesman.c
-OBJ = ${SRC:.c=.o}
-TARGETS = ${SRC:.c=}
-LIBS = $(addprefix pam_,${SRC:.c=.so})
+TARGETS = keystroke yesman delayed
+OBJ = $(addsuffix .o,$(TARGETS))
+SRC = $(addsuffix .c,$(TARGETS))
+LIBS = $(addprefix pam_,$(addsuffix .so,$(TARGETS)))
 
 all: $(LIBS)
 
