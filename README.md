@@ -6,6 +6,7 @@ Currently the following PAM modules are available:
 
 - **keystroke**: Pressing a key authenticates you (does not work in native Wayland windows - use XWayland)
 - **yesman**: Returns immediately with a positive response for any PAM service
+- **delayed**: Waits a few seconds (default 5) before sending an authentication success
 
 ## Dependencies
 - `keystroke` needs [`libuiohook`](https://github.com/kwhat/libuiohook) to be installed 
